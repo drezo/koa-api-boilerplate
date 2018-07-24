@@ -1,0 +1,53 @@
+{
+  "name": "koa-api-boilerplate",
+  "version": "0.0.1",
+  "description": "KoaJS API Boilerplate",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "cross-env DEBUG=api:* nodemon -e yaml,js,json -w locales -w src ./src",
+    "serve": "NODE_ENV=production node src/index.js",
+    "test": "yarn test:lint",
+    "test:lint": "eslint src",
+    "format": "prettier --write \"src/**/*.js\""
+  },
+  "engines": {
+    "node": ">=8.11.3",
+    "yarn": ">=1.6.0"
+  },
+  "keywords": [
+    "koa",
+    "koa2",
+    "rest",
+    "restful",
+    "api",
+    "koa-boilerplate",
+    "koa-api-boilerplate",
+    "boilerplate"
+  ],
+  "repository": "git@github.com:drezo/koa-api-boilerplate.git",
+  "author": "Drez0 <alexandr.fdh@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "bugsnag": "^2.4.3",
+    "debug": "^3.1.0",
+    "dotenv": "^6.0.0",
+    "kcors": "^2.2.2",
+    "koa": "^2.5.2",
+    "koa-body": "^4.0.4",
+    "koa-helmet": "^4.0.0",
+    "koa-logger": "^3.2.0",
+    "koa-methodoverride": "^2.0.0",
+    "koa-router": "^7.4.0"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^13.0.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-prettier": "^2.6.2",
+    "nodemon": "^1.18.3",
+    "prettier": "^1.13.7"
+  }
+}
