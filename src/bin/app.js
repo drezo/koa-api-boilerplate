@@ -5,6 +5,8 @@ const methodOverride = require('koa-methodoverride');
 const cors = require('kcors');
 const helmet = require('koa-helmet');
 const bugsnag = require('bugsnag');
+const errorHandling = require('../middlewares/errorHandling');
+const notFound = require('../middlewares/notFound');
 const route = require('../routes');
 
 const app = new Koa();
@@ -22,6 +24,7 @@ if (isProduction) {
   }
 }
 
+app.use(errorHandling());
 app.use(methodOverride('X-HTTP-Method-Override'));
 app.use(helmet());
 app.use(cors({ credentials: true }));
@@ -30,5 +33,7 @@ app.use(logger());
 
 app.use(route.routes());
 app.use(route.allowedMethods());
+
+app.use(notFound());
 
 module.exports = app;
