@@ -3,7 +3,7 @@ const debug = require('debug')('api:index');
 const { promisify } = require('util');
 const { Server } = require('./bin');
 
-const serverListen = port => promisify(Server.listen.bind(Server))(port);
+const serverListen = promisify(Server.listen.bind(Server));
 
 const production = !(process.env.NODE_ENV === 'production');
 
